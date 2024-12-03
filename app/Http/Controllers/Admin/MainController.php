@@ -9,6 +9,8 @@ class MainController extends Controller
 {
     public function index()
     {
-        echo 123;
+        return view('admin.home', [
+            'title' => 'Admin Page'
+        ]);
     }
 }
