@@ -26,7 +26,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('add', [MenuController::class, 'store']);
 
 
-            Route::get('list', [MenuController::class, 'index'])->name('list');
+            Route::get('list', [MenuController::class, 'index']);
 
         });
     });

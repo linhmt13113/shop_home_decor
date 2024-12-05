@@ -28,4 +28,11 @@ class MenuController extends Controller
         return redirect()->back();
 
     }
+
+    public function index()  {
+        return view('admin.menu.list', [
+            'title' => 'Latest Category List',
+            'menus' => $this->menuService->getAll()
+        ]);
+    }
 }
