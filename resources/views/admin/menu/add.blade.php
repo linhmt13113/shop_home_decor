@@ -11,13 +11,17 @@
     <div class="card-body">
         <div class="form-group">
             <label for="menu">Category name</label>
-            <input type="text" name="menu" class="form-control" id="menu" placeholder="Enter name">
+            <input type="text" name="name" class="form-control" placeholder="Enter category name">
         </div>
 
         <div class="form-group">
             <label>Category </label>
             <select class="form-control" name="parent_id" id="">
                 <option value="0">Parent Category</option>
+                @foreach ($menus as $menu )
+                <option value="{{ $menu->id}}">{{ $menu->name}}</option>
+
+                @endforeach
             </select>
         </div>
 
@@ -48,6 +52,7 @@
         <div class="card-footer">
             <button type="submit" class="btn btn-primary">Create Categories</button>
         </div>
+        @csrf
 </form>
 
 @endsection
