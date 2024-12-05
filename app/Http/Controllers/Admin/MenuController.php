@@ -45,6 +45,12 @@ class MenuController extends Controller
         ]);
     }
 
+    public function update(Menu $menu, CreateFormRequest $request)  {
+        $this->menuService->update($request, $menu);
+
+        return redirect('/admin/menus/list');
+    }
+
     public function destroy(Request $request)  {
         $result = $this->menuService->destroy($request);
         if($result){

@@ -36,12 +36,28 @@ class MenuService
                 'active' => (string) $request->input('active'),
             ]);
 
-            Session::flash('success', 'Create a successful category');
+            Session::flash('success', 'Created a successful category');
         } catch (\Exception $err) {
             Session::flash('error', $err->getMessage());
             return false;
         }
 
+        return true;
+    }
+
+    public function update($request, $menu){
+
+        if ($request->input('parent_id') != $menu->id) {
+            $menu->parent_id = (int)$request->input('parent_id');
+        }
+
+        $menu->name = (string)$request->input('name');
+        $menu->description = (string)$request->input('description');
+        $menu->content = (string)$request->input('content');
+        $menu->active = (string)$request->input('active');
+        $menu->save();
+
+        Session::flash('success', 'Updated a successful category');
         return true;
     }
 

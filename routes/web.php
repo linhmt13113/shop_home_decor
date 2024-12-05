@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
 
             Route::get('list', [MenuController::class, 'index']);
             Route::get('edit/{menu}', [MenuController::class, 'show']);
+            Route::post('edit/{menu}', [MenuController::class, 'update']);
             Route::delete('destroy', [MenuController::class, 'destroy']);
 
         });
