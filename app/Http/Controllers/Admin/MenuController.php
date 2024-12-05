@@ -35,4 +35,17 @@ class MenuController extends Controller
             'menus' => $this->menuService->getAll()
         ]);
     }
+
+    public function destroy(Request $request)  {
+        $result = $this->menuService->destroy($request);
+        if($result){
+            return response()->json([
+                'error' => false,
+                'message' => 'Deleted successfully'
+            ]);
+        }
+        return response()->json([
+            'error' => true,
+        ]);
+    }
 }

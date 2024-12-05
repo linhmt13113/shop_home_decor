@@ -27,6 +27,7 @@ Route::middleware(['auth'])->group(function () {
 
 
             Route::get('list', [MenuController::class, 'index']);
+            Route::delete('destroy', [MenuController::class, 'destroy']);
 
         });
     });
