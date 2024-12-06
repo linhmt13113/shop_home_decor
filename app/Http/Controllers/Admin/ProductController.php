@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Product\ProductRequest;
 use Illuminate\Http\Request;
 use App\Http\Services\Product\ProductAdminService;
 
@@ -34,9 +35,14 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        //
+        // return view('admin.product.add', [
+        //     'title' => 'Add New Product',
+        //     'menus' => $this->productService->getMenu()
+        // ]);
+        $this->productService->insert($request);
+        return redirect()->back();
     }
 
     /**
