@@ -56,4 +56,32 @@ class ProductAdminService
         return Product::with('menu')->orderByDesc('id')->paginate(15);
 
     }
+
+    public function update($request, $product)
+    {
+        $isValidPrice = $this->isValidPrice($request);
+        if ($isValidPrice === false) return false;
+
+        try {
+            $product->fill($request->input());
+            $product->save();
+            Session::flash('success', 'Update successful');
+        } catch (\Exception $err) {
+            Session::flash('error', 'Error please try again');
+            \Log::info($err->getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    public function delete($request)
+    {
+        $product = Product::where('id', $request->input('id'))->first();
+        if ($product) {
+            $product->delete();
+            return true;
+        }
+
+        return false;
+    }
 }
