@@ -18,7 +18,10 @@ class ProductController extends Controller
 
     public function index()
     {
-        //
+        return view('admin.product.list',[
+            'title' => 'Product List',
+            'products' => $this->productService->get()
+        ]);
     }
 
     /**
