@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\ProductRequest;
 use Illuminate\Http\Request;
 use App\Http\Services\Product\ProductAdminService;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -51,18 +52,22 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Product $product)
     {
-        //
+        return view('admin.product.edit', [
+            'title' => 'Edit Product',
+            'product' => $product,
+            'menus' => $this->productService->getMenu()
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
-    }
+    // public function edit(string $id)
+    // {
+    //     //
+    // }
 
     /**
      * Update the specified resource in storage.
