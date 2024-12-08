@@ -7,8 +7,8 @@ use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Services\UploadService;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MainController;
-// use App\Http\Controllers\Admin\MainController;
+// use App\Http\Controllers\MainController;
+use App\Http\Controllers\Admin\MainController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -66,4 +66,4 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-Route::get('/', [MainController::class, 'index']);
+Route::get('/', [App\Http\Controllers\MainController::class, 'index']);
