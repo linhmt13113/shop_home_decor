@@ -41,4 +41,27 @@ class SliderController extends Controller
             'sliders' => $this->slider->get()
         ]);
     }
+    public function show(Slider $slider)
+    {
+        return view('admin.slider.edit', [
+            'title' => 'Edit Slider',
+            'slider' => $slider
+        ]);
+    }
+
+    public function update(Request $request, Slider $slider)
+    {
+        $request->validate( [
+            'name' => 'required',
+            'thumb' => 'required',
+            'url'   => 'required'
+        ]);
+
+        $result = $this->slider->update($request, $slider);
+        if ($result) {
+            return redirect('/admin/sliders/list');
+        }
+
+        return redirect()->back();
+    }
 }
