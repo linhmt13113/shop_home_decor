@@ -69,4 +69,8 @@ class MenuService
         }
         return false;
     }
+
+    public function show(){
+        return Menu::select('name', 'id')->where('parent_id', 0)->orderByDesc('id')->get();
+    }
 }
