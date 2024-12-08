@@ -5,6 +5,7 @@ namespace App\Http\Services\Slider;
 use App\Models\Slider;
 use Log;
 use Session;
+use Storage;
 
 class SliderService
 {
@@ -40,6 +41,23 @@ class SliderService
         }
 
         return true;
+    }
+    public function destroy($request)
+    {
+        $slider = Slider::where('id', $request->input('id'))->first();
+        if ($slider) {
+            $path = str_replace('storage', 'public', $slider->thumb);
+            Storage::delete($path);
+            $slider->delete();
+            return true;
+        }
+
+        return false;
+    }
+
+    public function show()
+    {
+        return Slider::where('active', 1)->orderByDesc('sort_by')->get();
     }
 }
 
