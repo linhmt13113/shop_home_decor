@@ -16,7 +16,6 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/template/vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/template/vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/template/vendor/select2/select2.min.css">
 <!--===============================================================================================-->
@@ -32,3 +31,4 @@
 	<link rel="stylesheet" type="text/css" href="/template/css/main.css">
 	<link rel="stylesheet" type="text/css" href="/template/css/style.css">
 <!--===============================================================================================-->
+<meta name="csrf-token" content="{{ csrf_token() }}">
