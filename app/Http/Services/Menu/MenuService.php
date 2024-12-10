@@ -16,11 +16,13 @@ class MenuService
     //         ->get();
     // }
 
-    public function getParent(){
+    public function getParent()
+    {
         return Menu::where('parent_id', 0)->get();
     }
 
-    public function getAll(){
+    public function getAll()
+    {
         return Menu::orderByDesc('id')->paginate(20);
     }
 
@@ -45,36 +47,40 @@ class MenuService
         return true;
     }
 
-    public function update($request, $menu){
+    public function update($request, $menu)
+    {
 
         if ($request->input('parent_id') != $menu->id) {
-            $menu->parent_id = (int)$request->input('parent_id');
+            $menu->parent_id = (int) $request->input('parent_id');
         }
 
-        $menu->name = (string)$request->input('name');
-        $menu->description = (string)$request->input('description');
-        $menu->content = (string)$request->input('content');
-        $menu->active = (string)$request->input('active');
+        $menu->name = (string) $request->input('name');
+        $menu->description = (string) $request->input('description');
+        $menu->content = (string) $request->input('content');
+        $menu->active = (string) $request->input('active');
         $menu->save();
 
         Session::flash('success', 'Updated a successful category');
         return true;
     }
 
-    public function destroy($request)  {
+    public function destroy($request)
+    {
         $id = (int) $request->input('id');
         $menu = Menu::where('id', $id)->first();
-        if($menu){
+        if ($menu) {
             return Menu::where('id', $id)->orWhere('parent_id', $id)->delete();
         }
         return false;
     }
 
-    public function show(){
+    public function show()
+    {
         return Menu::select('name', 'id')->where('parent_id', 0)->orderByDesc('id')->get();
     }
 
-    public function getId($id)  {
+    public function getId($id)
+    {
         return Menu::where('id', $id)->where('active', 1)->firstOrFail();
     }
 
@@ -83,6 +89,24 @@ class MenuService
         $query = $menu->products()
             ->select('id', 'name', 'price', 'price_sale', 'thumb')
             ->where('active', 1);
+
+        if ($request->has('price_min') && $request->has('price_max')) {
+            $priceMin = $request->input('price_min');
+            $priceMax = $request->input('price_max');
+
+            // Lọc sản phẩm có giá (hoặc giá sale) trong phạm vi price_min và price_max
+            $query->where(function ($query) use ($priceMin, $priceMax) {
+                $query->whereBetween('price', [$priceMin, $priceMax])
+                    ->orWhereBetween('price_sale', [$priceMin, $priceMax])
+                    ->orWhere(function ($query) use ($priceMin, $priceMax) {
+                        // Lọc sản phẩm khi giá sale và giá gốc đều nằm trong phạm vi giá
+                        $query->where('price', '>=', $priceMin)
+                            ->where('price', '<=', $priceMax)
+                            ->where('price_sale', '>=', $priceMin)
+                            ->where('price_sale', '<=', $priceMax);
+                    });
+            });
+        }
 
         if ($request->input('price')) {
             // $query->orderBy('price', $request->input('price'));

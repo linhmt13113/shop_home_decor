@@ -43,7 +43,7 @@
 
                             <ul>
                                 <li class="p-b-6">
-                                    <a href="{{ request()->url() }}" class="filter-link stext-106 trans-04">
+                                    <a href="{{ request()->url() }}" class="filter-link stext-106 trans-04 filter-link-active" >
                                         Default
                                     </a>
                                 </li>
@@ -61,7 +61,7 @@
                                 </li>
                             </ul>
                         </div>
-<!--
+
                         <div class="filter-col2 p-r-15 p-b-27">
                             <div class="mtext-102 cl2 p-b-15">
                                 Price
@@ -69,25 +69,25 @@
 
                             <ul>
                                 <li class="p-b-6">
-                                    <a href="#" class="filter-link stext-106 trans-04 filter-link-active">
+                                    <a href="{{ request()->url() }}" class="filter-link stext-106 trans-04 filter-link-active">
                                         All
                                     </a>
                                 </li>
 
                                 <li class="p-b-6">
-                                    <a href="#" class="filter-link stext-106 trans-04">
+                                    <a href="{{ request()->fullUrlWithQuery(['price_min' => 0, 'price_max' => 50]) }}" class="filter-link stext-106 trans-04">
                                         $0.00 - $50.00
                                     </a>
                                 </li>
 
                                 <li class="p-b-6">
-                                    <a href="#" class="filter-link stext-106 trans-04">
+                                    <a href="{{ request()->fullUrlWithQuery(['price_min' => 50, 'price_max' => 100]) }}" class="filter-link stext-106 trans-04">
                                         $50.00 - $100.00
                                     </a>
                                 </li>
                             </ul>
                         </div>
- -->
+
 
                     </div>
                 </div>
