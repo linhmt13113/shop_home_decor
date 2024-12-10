@@ -86,7 +86,13 @@ class Helper
 
     public static function price($price = 0, $priceSale = 0)
     {
-        if ($priceSale != 0) return number_format($priceSale);
+        // logic filter
+        if ($priceSale > 0) {
+            if ($priceSale < $price) {
+                return '<span class="price-sale">' . number_format($priceSale) . '</span>
+                        <span class="price-original" style="text-decoration: line-through; color: #999;">' . number_format($price) . '</span>';
+            }
+        }
         if ($price != 0)  return number_format($price);
         return '<a href="/contact.html">Contact</a>';
     }

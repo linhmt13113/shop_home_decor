@@ -18,7 +18,7 @@ class MainController extends Controller
         $this->product = $product;
     }
     public function index(){
-        return view('main', [
+        return view('home', [
             'title' => 'Shop Home Decor',
             'sliders' => $this->slider->show(),
             'menus' => $this->menu->show(),
