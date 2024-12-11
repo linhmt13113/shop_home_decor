@@ -21,6 +21,7 @@ class ProductService
             ->get();
     }
 
+    //show product
     public function show($id)
     {
         return Product::where('id', $id)
@@ -29,6 +30,7 @@ class ProductService
             ->firstOrFail();
     }
 
+    //show more product
     public function more($id)
     {
         return Product::select('id', 'name', 'price', 'price_sale', 'thumb')

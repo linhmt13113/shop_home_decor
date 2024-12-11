@@ -70,3 +70,4 @@ Route::get('/', [App\Http\Controllers\MainController::class, 'index']);
 Route::post('/services/load-product', [App\Http\Controllers\MainController::class, 'loadProduct']);
 
 Route::get('categories/{id}-{slug}.html', [App\Http\Controllers\MenuController::class, 'index']);
+Route::get('products/{id}-{slug}.html', [App\Http\Controllers\ProductController::class, 'index']);

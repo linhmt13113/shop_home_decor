@@ -94,12 +94,10 @@ class MenuService
             $priceMin = $request->input('price_min');
             $priceMax = $request->input('price_max');
 
-            // Lọc sản phẩm có giá (hoặc giá sale) trong phạm vi price_min và price_max
             $query->where(function ($query) use ($priceMin, $priceMax) {
                 $query->whereBetween('price', [$priceMin, $priceMax])
                     ->orWhereBetween('price_sale', [$priceMin, $priceMax])
                     ->orWhere(function ($query) use ($priceMin, $priceMax) {
-                        // Lọc sản phẩm khi giá sale và giá gốc đều nằm trong phạm vi giá
                         $query->where('price', '>=', $priceMin)
                             ->where('price', '<=', $priceMax)
                             ->where('price_sale', '>=', $priceMin)

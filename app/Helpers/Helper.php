@@ -47,7 +47,7 @@ class Helper
             : '<span class="btn btn-success btn-xs rounded-pill"><i class="fas fa-check-circle"></i> YES</span>';
     }
 
-    public static function menus($menus, $parent_id = 0) :string
+    public static function menus($menus, $parent_id = 0): string
     {
         $html = '';
         foreach ($menus as $key => $menu) {
@@ -73,7 +73,7 @@ class Helper
         return $html;
     }
 
-    public static function isChild($menus, $id) : bool
+    public static function isChild($menus, $id): bool
     {
         foreach ($menus as $menu) {
             if ($menu->parent_id == $id) {
@@ -89,11 +89,14 @@ class Helper
         // logic filter
         if ($priceSale > 0) {
             if ($priceSale < $price) {
-                return '<span class="price-sale">' . number_format($priceSale) . '</span>
-                        <span class="price-original" style="text-decoration: line-through; color: #999;">' . number_format($price) . '</span>';
+                return '<span class="price-sale">' . '£' . number_format($priceSale) . '</span>
+                        <span class="price-original"
+                        style="text-decoration: line-through; color: #999;">'
+                    . '£' . number_format($price) . '</span>';
             }
         }
-        if ($price != 0)  return number_format($price);
+        if ($price != 0)
+            return '£' . number_format($price);
         return '<a href="/contact.html">Contact</a>';
     }
 }
