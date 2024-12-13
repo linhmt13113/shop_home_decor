@@ -3,9 +3,9 @@
 namespace App\Http\Services\Slider;
 
 use App\Models\Slider;
-use Log;
-use Session;
-use Storage;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class SliderService
 {

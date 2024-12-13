@@ -7,6 +7,7 @@ namespace App\Http\Services\Product;
 use App\Models\Menu;
 use App\Models\Product;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Log;
 
 class ProductAdminService
 {
@@ -45,7 +46,7 @@ class ProductAdminService
             Session::flash('success', 'Add product successfully');
         } catch (\Exception $err) {
             Session::flash('error', 'Add product error');
-            \Log::info($err->getMessage());
+            Log::info($err->getMessage());
             return  false;
         }
 
@@ -68,7 +69,7 @@ class ProductAdminService
             Session::flash('success', 'Update successful');
         } catch (\Exception $err) {
             Session::flash('error', 'Error please try again');
-            \Log::info($err->getMessage());
+            Log::info($err->getMessage());
             return false;
         }
         return true;

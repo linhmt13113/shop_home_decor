@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Customer;
 use App\Models\Cart;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class CartService
 {
@@ -125,4 +126,28 @@ class CartService
 
         return Cart::insert($data);
     }
+
+    public function getCustomer()
+    {
+        return Customer::orderByDesc('id')->paginate(15);
+    }
+
+    public function getProductForCart($customer)
+    {
+        return $customer->carts()->with(['product' => function ($query) {
+            $query->select('id', 'name', 'thumb');
+        }])->get();
+    }
+
+    public function delete($request)
+    {
+        $customer = Customer::where('id', $request->input('id'))->first();
+        if ($customer) {
+            $customer->delete();
+            return true;
+        }
+        return false;
+    }
+
+
 }
