@@ -98,6 +98,8 @@
             {!! $products->links() !!}
         </div>
     </div>
+<div class="spacer" style="height: 100px;"></div>
+
 @endsection
 
 

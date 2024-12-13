@@ -100,30 +100,29 @@
                             </span>
                         </div>
                     </div>
-<!--
+
                     <div class="flex-w flex-t bor12 p-t-15 p-b-30">
 
                         <div class="size-100 p-r-18 p-r-0-sm w-full-ssm">
-
                             <div class="p-t-15">
                                 <span class="stext-112 cl8">
-                                    Thông Tin Khách Hàng
+                                    Customer Information
                                 </span>
 
                                 <div class="bor8 bg0 m-b-12">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="name" placeholder="Tên khách Hàng" required>
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="name" placeholder="Customer name" required>
                                 </div>
 
                                 <div class="bor8 bg0 m-b-12">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="phone" placeholder="Số Điện Thoại" required>
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="phone" placeholder="Phone" required>
                                 </div>
 
                                 <div class="bor8 bg0 m-b-12">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="address" placeholder="Địa Chỉ Giao Hàng">
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="address" placeholder="Delivery Address">
                                 </div>
 
                                 <div class="bor8 bg0 m-b-12">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="email" placeholder="Email Liên Hệ">
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="email" placeholder="Email">
                                 </div>
 
                                 <div class="bor8 bg0 m-b-12">
@@ -132,10 +131,10 @@
 
                             </div>
                         </div>
-                    </div> -->
+                    </div>
 
                     <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                        Đặt Hàng
+                        Checkout
                     </button>
                 </div>
             </div>
@@ -146,5 +145,7 @@
 <div class="text-center">
     <h2>Empty Cart</h2>
 </div>
+<div class="spacer" style="height: 280px;"></div>
+
 @endif
 @endsection

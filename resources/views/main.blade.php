@@ -12,6 +12,7 @@
     <!-- Cart -->
     @include('cart')
 
+    <!-- content -->
     @yield('content')
 
     @include('footer')
