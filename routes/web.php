@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\MainController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\UserProfileController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -94,3 +96,12 @@ Route::post('update-cart', [App\Http\Controllers\CartController::class, 'update'
 Route::get('carts/delete/{id}', [App\Http\Controllers\CartController::class, 'remove']);
 Route::post('carts', [App\Http\Controllers\CartController::class, 'addCart']);
 
+Route::get('login', [PagesController::class, 'index'])->name(name: 'login');
+Route::post('login/store', [PagesController::class, 'store'])->name('login.store');
+Route::get('/logout', [PagesController::class, 'logout'])->name('logout');
+
+Route::get('/profile', [UserProfileController::class, 'index'])->name('profile');
+Route::post('/profile/update', [UserProfileController::class, 'update'])->name('profile.update');
+
+Route::middleware('guest')->get('/register', [PagesController::class, 'showRegisterForm'])->name('register.form');
+Route::middleware('guest')->post('/register', [PagesController::class, 'register'])->name('register');

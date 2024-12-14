@@ -26,6 +26,24 @@
                         <li>
                             <a href="contact.html">Contact</a>
                         </li>
+
+                         <!-- Check if user is logged in -->
+                         @auth
+                            <li>
+                                <a href="{{ route('profile') }}">{{ Auth::user()->name }}</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('logout') }}" class="logout">Logout</a>
+                            </li>
+                        @else
+                            <li>
+                                <a href="{{ route('login') }}" class="login">Login</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('register.form') }}" class="register">Register</a>
+                            </li>
+                        @endauth
+
                     </ul>
                 </div>
 
@@ -47,13 +65,13 @@
     </div>
 
     <!-- Header Mobile -->
-    <div class="wrap-header-mobile">
-        <!-- Logo moblie -->
+    <!-- <div class="wrap-header-mobile">
+        Logo moblie
         <div class="logo-mobile">
             <a href="index.html"><img src="/template/images/icons/logo-01.png" alt="IMG-LOGO"></a>
         </div>
 
-        <!-- Icon header -->
+        Icon header
         <div class="wrap-icon-header flex-w flex-r-m m-r-15">
             <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
                 <i class="zmdi zmdi-search"></i>
@@ -66,16 +84,16 @@
 
         </div>
 
-        <!-- Button show menu -->
+        Button show menu
         <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
             <span class="hamburger-box">
                 <span class="hamburger-inner"></span>
             </span>
         </div>
-    </div>
+    </div> -->
 
     <!-- Menu Mobile -->
-    <div class="menu-mobile">
+    <!-- <div class="menu-mobile">
         <ul class="main-menu-m">
             <div class="menu-desktop">
                 <ul class="main-menu">
@@ -89,7 +107,7 @@
                 </ul>
             </div>
         </ul>
-    </div>
+    </div> -->
 
     <!-- Modal Search -->
     <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
