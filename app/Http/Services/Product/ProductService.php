@@ -40,4 +40,24 @@ class ProductService
             ->limit(8)
             ->get();
     }
+
+    public function searchProducts($search)
+    {
+        if ($search) {
+            $products = Product::where('name', 'like', '%' . $search . '%')
+                ->orWhere('content', 'like', '%' . $search . '%')
+                ->orWhere('description', 'like', '%' . $search . '%')
+                ->orderByDesc('id')
+                ->get();  // Lấy tất cả các sản phẩm thỏa mãn
+
+            return $products;
+        }
+        return false;
+    }
+
+
+
+
+
+
 }

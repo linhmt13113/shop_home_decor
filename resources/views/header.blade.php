@@ -10,7 +10,7 @@
             <nav class="limiter-menu-desktop container">
 
                 <!-- Logo desktop -->
-                <a href="#" class="logo">
+                <a href="/" class="logo">
                     <img src="/template/images/icons/logo-01.png" alt="IMG-LOGO">
                 </a>
 
@@ -57,8 +57,6 @@
                         data-notify="{{ !is_null(\Session::get('carts')) ? count(\Session::get('carts')) : 0 }}">
                         <i class="zmdi zmdi-shopping-cart"></i>
                     </div>
-
-
                 </div>
             </nav>
         </div>
@@ -111,17 +109,17 @@
 
     <!-- Modal Search -->
     <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
-        <div class="container-search-header">
-            <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-                <img src="/template/images/icons/icon-close2.png" alt="CLOSE">
-            </button>
+    <div class="container-search-header">
+        <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+            <img src="/template/images/icons/icon-close2.png" alt="CLOSE">
+        </button>
 
-            <form class="wrap-search-header flex-w p-l-15">
-                <button class="flex-c-m trans-04">
-                    <i class="zmdi zmdi-search"></i>
-                </button>
-                <input class="plh3" type="text" name="search" placeholder="Search...">
-            </form>
-        </div>
+        <form class="wrap-search-header flex-w p-l-15" action="{{ route('product.search') }}" method="GET">
+            <button class="flex-c-m trans-04">
+                <i class="zmdi zmdi-search"></i>
+            </button>
+            <input class="plh3" type="text" name="search" placeholder="Search..." value="{{ request()->input('search') }}">
+        </form>
     </div>
+</div>
 </header>

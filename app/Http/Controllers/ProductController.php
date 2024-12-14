@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Services\Product\ProductService;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -20,6 +21,17 @@ class ProductController extends Controller
             'title' => $product->name,
             'product' => $product,
             'products' => $productsMore
+        ]);
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $products = $this->productService->searchProducts($search);
+        $products = $products->unique('id');
+        return view('products.search_results', [
+            'title' => $search,
+            'products' => $products
         ]);
     }
 }
