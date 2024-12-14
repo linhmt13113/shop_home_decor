@@ -9,6 +9,7 @@ use App\Http\Services\UploadService;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\MainController;
 use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\Admin\UserController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -66,6 +67,15 @@ Route::middleware(['auth'])->group(function () {
         Route::get('customers/view/{customer}', [\App\Http\Controllers\Admin\CartController::class, 'show']);
         Route::delete('customers/destroy', [\App\Http\Controllers\Admin\CartController::class, 'destroy']);
 
+        //user
+        Route::prefix('/users/users')->group(function(){
+            Route::get('add', [UserController::class, 'create']);
+            Route::post('add', [UserController::class, 'store']);
+            Route::get('list', [UserController::class, 'index'])->name('admin.users.users.list');
+            Route::get('edit/{user}', [UserController::class, 'show']);
+            Route::post('edit/{user}', [UserController::class, 'update']);
+            Route::delete('destroy', [UserController::class, 'destroy']);
+        });
     });
 
 

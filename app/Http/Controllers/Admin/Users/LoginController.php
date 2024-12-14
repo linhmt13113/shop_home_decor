@@ -33,6 +33,13 @@ class LoginController extends Controller
                 'password' => $request->input('password'),
             ], $request->input('remember'))
         ) {
+            $user = Auth::user();
+
+            if ($user->level != 1) {
+                Auth::logout();
+                Session::flash('error', 'You are not authorized to access the Admin panel.');
+                return redirect()->route('login');
+            }
             return redirect()->route('admin');
         }
 
