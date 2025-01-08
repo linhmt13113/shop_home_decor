@@ -46,33 +46,28 @@
                         <div class="col-md-12">
                             <!-- jquery validation -->
                             <div class="card card-primary mt-3">
-                                <div class="card-header">
+                                <div class="card-header d-flex justify-content-between align-items-center">
                                     <h3 class="card-title"> {{ $title }} <small></small></h3>
+                                    <div class="flex-grow-1"></div>
+                                    <h3 class="card-title mb-0">
+                                        <a href="{{ route('logouts') }}" class="logout">Logout</a> <small></small>
+                                    </h3>
                                 </div>
+
 
                                 @yield('content')
                             </div>
                             <!-- /.card -->
                         </div>
-                        <!--/.col (left) -->
-                        <!-- right column -->
                         <div class="col-md-6">
 
                         </div>
-                        <!--/.col (right) -->
                     </div>
-                    <!-- /.row -->
-                </div><!-- /.container-fluid -->
+                </div>
             </section>
-            <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <div class="float-right d-none d-sm-block">
-                <b>Version</b> 3.1.0
-            </div>
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
-            reserved.
         </footer>
 
 

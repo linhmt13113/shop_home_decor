@@ -18,13 +18,13 @@
                 $sumPriceCart = 0;
             @endphp
             <ul class="header-cart-wrapitem w-full">
-                @if(count($products) == 0)
+                @if(/*$products &&*/ count($products) == 0)
                     <div class="header-cart-empty-message">
                         Your cart is empty.
                     </div>
                 @endif
 
-                @if(count($products) > 0)
+                @if(/*$products &&*/ count($products) > 0)
                             @foreach ($products as $key => $product)
                                         @php
                                             $price = \App\Helpers\Helper::price($product->price, $product->price_sale);

@@ -1,9 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/admin" class="brand-link">
-        <img src="/template/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
-            class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light">Admin Management</span>
     </a>
 
     <!-- Sidebar -->
@@ -11,10 +9,10 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="/template/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="/template/admin/dist/img/admin_illus.png" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="/admin" class="d-block">{{ Auth::user()->name }}</a>
             </div>
         </div>
 
@@ -33,10 +31,9 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+                <!-- Category Menu -->
+                <li class="nav-item {{ Request::is('admin/menus/*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('admin/menus/add') || Request::is('admin/menus/list') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-bars"></i>
                         <p>
                             Category
@@ -45,113 +42,109 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/admin/menus/add" class="nav-link">
+                            <a href="/admin/menus/add" class="nav-link {{ Request::is('admin/menus/add') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Category</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/menus/list" class="nav-link">
+                            <a href="/admin/menus/list" class="nav-link {{ Request::is('admin/menus/list') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Category List</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+
+                <!-- Product Menu -->
+                <li class="nav-item {{ Request::is('admin/products/*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('admin/products/add') || Request::is('admin/products/list') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-store-alt"></i>
-                        <p> Sản Phẩm
+                        <p>Product
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/admin/products/add" class="nav-link">
+                            <a href="/admin/products/add" class="nav-link {{ Request::is('admin/products/add') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Thêm Sản Phẩm</p>
+                                <p>Add Product</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/products/list" class="nav-link">
+                            <a href="/admin/products/list" class="nav-link {{ Request::is('admin/products/list') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Danh Sách Sản Phẩm</p>
+                                <p>Product List</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
 
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+                <!-- Slider Menu -->
+                <li class="nav-item {{ Request::is('admin/sliders/*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('admin/sliders/*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-images"></i>
-                        <p> Slider
+                        <p>Slider
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/admin/sliders/add" class="nav-link">
+                            <a href="/admin/sliders/add" class="nav-link {{ Request::is('admin/sliders/add') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Thêm Slider</p>
+                                <p>Add Slider</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/sliders/list" class="nav-link">
+                            <a href="/admin/sliders/list" class="nav-link {{ Request::is('admin/sliders/list') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Danh Sách Slider</p>
+                                <p>Slider List</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
 
-                <!-- cartview -->
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+                <!-- Cart Menu -->
+                <li class="nav-item {{ Request::is('admin/customers') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('admin/customers') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-cart-plus"></i>
-                        <p> Giỏ Hàng
+                        <p>Cart
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/admin/customers" class="nav-link">
+                            <a href="/admin/customers" class="nav-link {{ Request::is('admin/customers') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Danh Sách Đơn Hàng</p>
+                                <p>Order List</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
 
-                <!-- userview -->
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-cart-plus"></i>
-                        <p> User
+                <!-- User Menu -->
+                <li class="nav-item {{ Request::is('admin/users/*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('admin/users/*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>User
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/admin/users/users/add" class="nav-link">
+                            <a href="/admin/users/users/add" class="nav-link {{ Request::is('admin/users/users/add') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add User</p>
                             </a>
                         </li>
-
                         <li class="nav-item">
-                            <a href="/admin/users/users/list" class="nav-link">
+                            <a href="/admin/users/users/list" class="nav-link {{ Request::is('admin/users/users/list') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Danh Sách User</p>
+                                <p>User List</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
-
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

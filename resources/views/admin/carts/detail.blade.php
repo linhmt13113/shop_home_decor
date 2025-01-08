@@ -3,11 +3,11 @@
 @section('content')
     <div class="customer mt-3">
         <ul>
-            <li>Tên khách hàng: <strong>{{ $customer->name }}</strong></li>
-            <li>Số điện thoại: <strong>{{ $customer->phone }}</strong></li>
-            <li>Địa chỉ: <strong>{{ $customer->address }}</strong></li>
+            <li>Customer Name: <strong>{{ $customer->name }}</strong></li>
+            <li>Phone Number: <strong>{{ $customer->phone }}</strong></li>
+            <li>Address: <strong>{{ $customer->address }}</strong></li>
             <li>Email: <strong>{{ $customer->email }}</strong></li>
-            <li>Ghi chú: <strong>{{ $customer->content }}</strong></li>
+            <li>Note: <strong>{{ $customer->content }}</strong></li>
         </ul>
     </div>
 
@@ -41,7 +41,7 @@
                 </tr>
             @endforeach
                 <tr>
-                    <td colspan="4" class="text-right">Tổng Tiền</td>
+                    <td colspan="4" class="text-right">Total amount</td>
                     <td>{{ number_format($total, 0, '', '.') }}</td>
                 </tr>
             </tbody>

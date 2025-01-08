@@ -24,7 +24,7 @@
                         {!! $menusHtml !!}
 
                         <li>
-                            <a href="contact.html">Contact</a>
+                            <a href="#">Contact</a>
                         </li>
 
                          <!-- Check if user is logged in -->
