@@ -12,7 +12,7 @@ class LoginController extends Controller
     public function index()
     {
         return view('admin.users.login', [
-            'title' => 'Login System'
+            'title' => 'Admin Login System'
         ]);
     }
 

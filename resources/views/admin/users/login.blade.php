@@ -9,9 +9,9 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href=""><b>Admin</b></a>
+            <a href=""><b>Admin Login</b></a>
         </div>
-        <!-- /.login-logo -->
+
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
@@ -53,10 +53,8 @@
 
 
             </div>
-            <!-- /.login-card-body -->
         </div>
     </div>
-    <!-- /.login-box -->
 
     @include('admin.footer')
 </body>

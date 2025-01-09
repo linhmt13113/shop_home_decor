@@ -4,13 +4,13 @@
     <!-- Slider -->
     <section class="section-slide">
         <div class="wrap-slick1">
-            <div class="slick1">
+            <div class="slick1 m-t-102" >
                 @foreach ($sliders as $slider)
                     <div class="item-slick1" style="background-image: url({{$slider->thumb}});">
                         <div class="container h-full">
                             <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
                                 <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
-                                    <span class="ltext-101 cl2 respon2">
+                                    <span class="ltext-201 cl2 respon1">
                                         HOT
                                     </span>
                                 </div>
@@ -37,14 +37,13 @@
 
 
     <!-- Banner -->
-    <div class="sec-banner bg0 p-t-80 p-b-50">
+    <!-- <div class="sec-banner bg0 p-t-80 p-b-50">
         <div class="container">
             <div class="row">
                 @foreach ($menus as $menu)
                     <div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
-                        <!-- Block1 -->
                         <div class="block1 wrap-pic-w">
-                            <img src="/template/images/banner-01.jpg" alt="IMG-BANNER">
+                            <img src="/template/images/shopnow1.png" alt="IMG-BANNER">
 
                             <a href="categories/{{$menu->id}}-{{\Str::slug($menu->name)}}.html"
                                 class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
@@ -69,7 +68,7 @@
                 @endforeach
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <!-- Product -->

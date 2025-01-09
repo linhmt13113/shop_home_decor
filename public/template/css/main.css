@@ -2005,6 +2005,13 @@ input.num-product::-webkit-inner-spin-button {
   position: relative;
 }
 
+.block2-pic img {
+    width: 100%;  /* Đảm bảo hình ảnh chiếm toàn bộ chiều rộng của phần tử chứa */
+    height: 300px;  /* Chỉnh chiều cao cố định cho tất cả hình ảnh */
+    object-fit: cover;  /* Cắt và làm đầy phần tử chứa mà không làm méo hình ảnh */
+}
+
+
 .block2-btn {
   position: absolute;
   bottom: -50px;
