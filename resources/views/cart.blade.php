@@ -18,7 +18,7 @@
                 $sumPriceCart = 0;
             @endphp
             <ul class="header-cart-wrapitem w-full">
-                @if(/*$products &&*/ count($products) == 0)
+                @if($products && count($products) === 0)
                     <div class="header-cart-empty-message">
                         Your cart is empty.
                     </div>

@@ -17,12 +17,13 @@ class MenuController extends Controller
     public function index(Request $request, $id, $slug = '')
     {
         $menu = $this->menuService->getId($id);
-        $products = $this->menuService->getProduct($menu, $request);
+        $categoryIds = $this->menuService->getCategoryIds($id);
+        $products = $this->menuService->getProduct($categoryIds, $request);
 
         return view('menu', [
             'title' => $menu->name,
             'products' => $products,
-            'menu'  => $menu
+            'menu'  => $menu,
         ]);
     }
 }

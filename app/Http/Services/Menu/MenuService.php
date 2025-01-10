@@ -21,6 +21,18 @@ class MenuService
         return Menu::where('parent_id', 0)->get();
     }
 
+    public function getCategoryIds($parentId)
+    {
+        // Lấy tất cả id danh mục con, bao gồm danh mục cha
+        $ids = Menu::where('id', $parentId)
+            ->orWhere('parent_id', $parentId)
+            ->pluck('id')
+            ->toArray();
+
+        return $ids;
+    }
+
+
     public function getAll()
     {
         return Menu::orderByDesc('id')->paginate(20);
@@ -84,9 +96,9 @@ class MenuService
         return Menu::where('id', $id)->where('active', 1)->firstOrFail();
     }
 
-    public function getProduct($menu, $request)
+    public function getProduct($categoryIds, $request)
     {
-        $query = $menu->products()
+        $query = \App\Models\Product::whereIn('menu_id', $categoryIds)
             ->select('id', 'name', 'price', 'price_sale', 'thumb')
             ->where('active', 1);
 

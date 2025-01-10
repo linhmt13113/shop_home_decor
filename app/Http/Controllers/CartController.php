@@ -30,7 +30,7 @@ class CartController extends Controller
         return view('carts.list', [
             'title' => 'Cart',
             'products' => $products,
-            'carts' => Session::get('carts')
+            'carts' => Session::get('carts' , [])
         ]);
     }
 
