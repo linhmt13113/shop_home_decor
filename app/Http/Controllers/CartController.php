@@ -23,9 +23,9 @@ class CartController extends Controller
         return redirect('/carts');
     }
 
-    public function show()
+    public function show_Cart()
     {
-        $products = $this->cartService->getProduct();
+        $products = $this->cartService->getOfProduct();
 
         return view('carts.list', [
             'title' => 'Cart',
@@ -34,14 +34,14 @@ class CartController extends Controller
         ]);
     }
 
-    public function update(Request $request)
+    public function update_Cart(Request $request)
     {
         $this->cartService->update($request);
 
         return redirect('/carts');
     }
 
-    public function remove($id = 0)
+    public function remove_Cart($id = 0)
     {
         $this->cartService->remove($id);
 

@@ -37,7 +37,7 @@
                                         </div>
                                     </td>
                                     <td class="column-2">{{ $product->name }}</td>
-                                    <td class="column-3">{{ number_format($price, 0, '', '.') }}</td>
+                                    <td class="column-3">£{{ number_format($price, 0, '', '.') }}</td>
                                     <td class="column-4">
                                         <div class="wrap-num-product flex-w m-l-auto m-r-0">
                                             <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
@@ -52,9 +52,9 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="column-5">{{ number_format($priceEnd, 0, '', '.') }}</td>
+                                    <td class="column-5">£{{ number_format($priceEnd, 0, '', '.') }}</td>
                                     <td class="p-r-15">
-                                        <a href="/carts/delete/{{ $product->id }}">Xóa</a>
+                                        <a href="/carts/delete/{{ $product->id }}">Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -63,17 +63,6 @@
                     </div>
 
                     <div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
-                        <!-- kha nang bo chuc nang nay -->
-                        <div class="flex-w flex-m m-r-20 m-tb-5">
-                            <input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text"
-                                name="coupon" placeholder="Coupon Code">
-
-                            <div
-                                class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
-                                Apply coupon
-                            </div>
-                        </div>
-
                         <input type="submit" value="Update Cart" formaction="/update-cart"
                             class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
                         @csrf
@@ -96,7 +85,7 @@
 
                         <div class="size-209 p-t-1">
                             <span class="mtext-110 cl2">
-                                {{ number_format($total, 0, '', '.') }}
+                            £{{ number_format($total, 0, '', '.') }}
                             </span>
                         </div>
                     </div>
@@ -110,11 +99,11 @@
                                 </span>
 
                                 <div class="bor8 bg0 m-b-12">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="name" placeholder="Customer name" required>
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="name" placeholder="Customer name" >
                                 </div>
 
                                 <div class="bor8 bg0 m-b-12">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="phone" placeholder="Phone" required>
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="phone" placeholder="Phone" >
                                 </div>
 
                                 <div class="bor8 bg0 m-b-12">

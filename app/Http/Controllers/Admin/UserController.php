@@ -13,13 +13,13 @@ class UserController extends Controller
     public function __construct(UserService $userService){
         $this->userService = $userService;
     }
-    public function create(){
+    public function create_user(){
         return view('admin.users.add', [
             'title' => 'Add new user',
         ]);
     }
 
-    public function store(Request $request){
+    public function store_user(Request $request){
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
@@ -42,7 +42,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function show(User $user)
+    public function show_user(User $user)
     {
         return view('admin.users.edit', [
             'title' => 'Edit user',
@@ -50,7 +50,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function update(Request $request, User $user)
+    public function update_user(Request $request, User $user)
     {
         $request->validate([
             'name' => 'required',
@@ -68,7 +68,7 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    public function destroy(Request $request)
+    public function destroy_user(Request $request)
     {
         $result = $this->userService->destroy($request);
         if ($result) {

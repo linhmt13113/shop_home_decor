@@ -24,7 +24,7 @@ class ProductController extends Controller
         ]);
     }
 
-    public function search(Request $request)
+    public function search_Product(Request $request)
     {
         $search = $request->input('search');
         $products = $this->productService->searchProducts($search);

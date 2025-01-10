@@ -17,10 +17,8 @@ class LoginController extends Controller
     }
 
     use \Illuminate\Foundation\Validation\ValidatesRequests;
-    public function store(Request $request)
+    public function stores(Request $request)
     {
-        // dd($request->input());
-
         $this->validate($request, [
             'email' => 'required|email:filter',
             'password' => 'required',
@@ -48,7 +46,7 @@ class LoginController extends Controller
 
     }
 
-    public function logout()
+    public function logout_Admin()
     {
         Auth::logout();
         return redirect('admin/users/login');

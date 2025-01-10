@@ -7,7 +7,6 @@ use App\Models\Product;
 use App\Models\Customer;
 use App\Models\Cart;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 
 class CartService
 {
@@ -44,7 +43,7 @@ class CartService
 
     }
 
-    public function getProduct()
+    public function getOfProduct()
     {
         $carts = Session::get('carts');
         if(is_null($carts)){
@@ -91,7 +90,7 @@ class CartService
                 'content' => $request->input('content')
             ]);
 
-            $this->infoProductCart($carts, $customer->id);
+            $this->infoProductOfCart($carts, $customer->id);
 
             DB::commit();
             Session::flash('success', 'Order Successful');
@@ -106,7 +105,7 @@ class CartService
         return true;
     }
 
-    protected function infoProductCart($carts, $customer_id)
+    protected function infoProductOfCart($carts, $customer_id)
     {
         $productId = array_keys($carts);
         $products = Product::select('id', 'name', 'price', 'price_sale', 'thumb')
@@ -127,12 +126,12 @@ class CartService
         return Cart::insert($data);
     }
 
-    public function getCustomer()
+    public function getOfCustomer()
     {
         return Customer::orderByDesc('id')->paginate(15);
     }
 
-    public function getProductForCart($customer)
+    public function getProductOfCart($customer)
     {
         return $customer->carts()->with(['product' => function ($query) {
             $query->select('id', 'name', 'thumb');

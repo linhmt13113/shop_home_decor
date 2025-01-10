@@ -28,7 +28,7 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create_product()
     {
         return view('admin.product.add', [
             'title' => 'Add New Product',
@@ -39,12 +39,9 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ProductRequest $request)
+    public function store_product(ProductRequest $request)
     {
-        // return view('admin.product.add', [
-        //     'title' => 'Add New Product',
-        //     'menus' => $this->productService->getMenu()
-        // ]);
+
         $this->productService->insert($request);
         return redirect()->back();
     }
@@ -52,7 +49,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show_product(Product $product)
     {
         return view('admin.product.edit', [
             'title' => 'Edit Product',
@@ -61,18 +58,8 @@ class ProductController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    // public function edit(string $id)
-    // {
-    //     //
-    // }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Product $product)
+    public function update_product(Request $request, Product $product)
     {
         $result = $this->productService->update($request, $product);
         if($result){
@@ -82,10 +69,7 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Request $request)
+    public function destroy_product(Request $request)
     {
         $result = $this->productService->delete($request);
         if($result){

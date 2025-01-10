@@ -19,7 +19,7 @@ class UserProfileController extends Controller
 
     public function update(Request $request)
     {
-        // Validate thông tin người dùng
+        // Validate
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users,email,' . Auth::id(),
@@ -28,11 +28,11 @@ class UserProfileController extends Controller
 
         try {
             $user = Auth::user();
-            // Cập nhật tên và email
+            // update name and mail
             $user->name = $request->input('name');
             $user->email = $request->input('email');
 
-            // Nếu có thay đổi mật khẩu, lưu mật khẩu mới
+            // if change password -> update new password
             if ($request->filled('password')) {
                 $user->password = Hash::make($request->input('password'));
             }

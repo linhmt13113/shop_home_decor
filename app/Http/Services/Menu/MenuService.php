@@ -7,14 +7,7 @@ use Illuminate\Support\Facades\Session;
 
 class MenuService
 {
-    // public function get($parent_id = 1)
-    // {
-    //     return Menu::
-    //         when($parent_id == 0, function ($query) use ($parent_id) {
-    //             $query->where('parent_id', $parent_id);
-    //         })
-    //         ->get();
-    // }
+
 
     public function getParent()
     {
@@ -23,7 +16,6 @@ class MenuService
 
     public function getCategoryIds($parentId)
     {
-        // Lấy tất cả id danh mục con, bao gồm danh mục cha
         $ids = Menu::where('id', $parentId)
             ->orWhere('parent_id', $parentId)
             ->pluck('id')
@@ -96,7 +88,7 @@ class MenuService
         return Menu::where('id', $id)->where('active', 1)->firstOrFail();
     }
 
-    public function getProduct($categoryIds, $request)
+    public function getOfProduct($categoryIds, $request)
     {
         $query = \App\Models\Product::whereIn('menu_id', $categoryIds)
             ->select('id', 'name', 'price', 'price_sale', 'thumb')
@@ -119,7 +111,6 @@ class MenuService
         }
 
         if ($request->input('price')) {
-            // $query->orderBy('price', $request->input('price'));
             $query->orderByRaw("COALESCE(price_sale, price) {$request->input('price')}");
         }
 

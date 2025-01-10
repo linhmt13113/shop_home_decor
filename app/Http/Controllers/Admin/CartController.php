@@ -19,13 +19,13 @@ class CartController extends Controller
     {
         return view('admin.carts.customer', [
             'title' => 'List of Orders',
-            'customers' => $this->cart->getCustomer()
+            'customers' => $this->cart->getOfCustomer()
         ]);
     }
 
-    public function show(Customer $customer)
+    public function show_cart(Customer $customer)
     {
-        $carts = $this->cart->getProductForCart($customer);
+        $carts = $this->cart->getProductOfCart($customer);
 
         return view('admin.carts.detail', [
             'title' => 'Order Details: ' . $customer->name,
@@ -34,7 +34,7 @@ class CartController extends Controller
         ]);
     }
 
-    public function destroy(Request $request)
+    public function destroy_cart(Request $request)
     {
         $result = $this->cart->delete($request);
         if($result){

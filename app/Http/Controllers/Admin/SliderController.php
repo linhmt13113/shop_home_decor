@@ -15,14 +15,14 @@ class SliderController extends Controller
     public function __construct(SliderService $slider){
         $this->slider = $slider;
     }
-    public function create(){
+    public function create_slider(){
         return view('admin.slider.add', [
             "title" => 'Add new slider',
 
         ]);
     }
 
-    public function store(Request $request){
+    public function store_slider(Request $request){
         $request->validate( [
             'name' => 'required',
             'thumb' => 'required',
@@ -41,7 +41,7 @@ class SliderController extends Controller
             'sliders' => $this->slider->get()
         ]);
     }
-    public function show(Slider $slider)
+    public function show_slider(Slider $slider)
     {
         return view('admin.slider.edit', [
             'title' => 'Edit Slider',
@@ -49,7 +49,7 @@ class SliderController extends Controller
         ]);
     }
 
-    public function update(Request $request, Slider $slider)
+    public function update_slider(Request $request, Slider $slider)
     {
         $request->validate( [
             'name' => 'required',
@@ -64,7 +64,7 @@ class SliderController extends Controller
 
         return redirect()->back();
     }
-    public function destroy(Request $request)
+    public function destroy_slider(Request $request)
     {
         $result = $this->slider->destroy($request);
         if ($result) {

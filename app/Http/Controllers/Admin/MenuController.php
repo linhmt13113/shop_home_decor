@@ -16,14 +16,14 @@ class MenuController extends Controller
     }
 
 
-    public function create(){
+    public function create_menu(){
         return view('admin.menu.add', [
             'title' => 'Add New Category',
             'menus' =>  $this->menuService->getParent()
         ]);
     }
 
-    public function store(CreateFormRequest $request) {
+    public function store_menu(CreateFormRequest $request) {
         $result = $this->menuService->create($request);
 
         return redirect()->back();
@@ -37,7 +37,7 @@ class MenuController extends Controller
         ]);
     }
 
-    public function show(Menu $menu){
+    public function show_menu(Menu $menu){
         return view('admin.menu.edit', [
             'title' => 'Edit Category: ' . $menu->name ,
             'menu' => $menu,
@@ -45,13 +45,13 @@ class MenuController extends Controller
         ]);
     }
 
-    public function update(Menu $menu, CreateFormRequest $request)  {
+    public function update_menu(Menu $menu, CreateFormRequest $request)  {
         $this->menuService->update($request, $menu);
 
         return redirect('/admin/menus/list');
     }
 
-    public function destroy(Request $request)  {
+    public function destroy_menu(Request $request)  {
         $result = $this->menuService->destroy($request);
         if($result){
             return response()->json([
