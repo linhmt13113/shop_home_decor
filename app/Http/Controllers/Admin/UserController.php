@@ -23,11 +23,11 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:8|confirmed',
+            'password' => 'required|min:6|confirmed',
             'level' => 'required|in:0,1',  // 0: user, 1: admin
         ]);
 
-        $result = $this->userService->insert($request);
+        $result = $this->userService->insertNewUser($request);
         if ($result) {
             return redirect()->route('admin.users.users.list');
         }
@@ -38,7 +38,7 @@ class UserController extends Controller
     public function index(){
         return view('admin.users.list', [
             'title' => 'User list',
-            'users' => $this->userService->get()
+            'users' => $this->userService->getNewUser()
         ]);
     }
 
@@ -59,7 +59,7 @@ class UserController extends Controller
             'level' => 'required|in:0,1', // 0: user, 1: admin
         ]);
 
-        $result = $this->userService->update($request, $user);
+        $result = $this->userService->updateNewUser($request, $user);
         if ($result) {
             return redirect()->route('admin.users.users.list');
 
@@ -70,7 +70,7 @@ class UserController extends Controller
 
     public function destroy_user(Request $request)
     {
-        $result = $this->userService->destroy($request);
+        $result = $this->userService->destroyNewUser($request);
         if ($result) {
             return response()->json([
                 'error' => false,

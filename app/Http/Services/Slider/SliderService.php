@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class SliderService
 {
-    public function insert($request){
+    public function insertSlider($request){
         try{
             Slider::create($request->input());
             Session::flash('success', 'Add new slider successfull');
@@ -23,11 +23,11 @@ class SliderService
         return true;
     }
 
-    public function get(){
+    public function getSlider(){
         return Slider::orderByDesc('id')->paginate(15);
     }
 
-    public function update($request, $slider)
+    public function updateSlider($request, $slider)
     {
         try {
             $slider->fill($request->input());
@@ -42,7 +42,7 @@ class SliderService
 
         return true;
     }
-    public function destroy($request)
+    public function destroySlider($request)
     {
         $slider = Slider::where('id', $request->input('id'))->first();
         if ($slider) {
@@ -55,7 +55,7 @@ class SliderService
         return false;
     }
 
-    public function show()
+    public function showSlider()
     {
         return Slider::where('active', 1)->orderByDesc('sort_by')->get();
     }

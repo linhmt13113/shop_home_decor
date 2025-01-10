@@ -30,7 +30,7 @@ class SliderController extends Controller
 
         ]);
 
-        $this->slider->insert($request);
+        $this->slider->insertSlider($request);
 
         return redirect()->back();
     }
@@ -38,7 +38,7 @@ class SliderController extends Controller
     public function index(){
         return view('admin.slider.list', [
             "title" => 'Lastest Slider list',
-            'sliders' => $this->slider->get()
+            'sliders' => $this->slider->getSlider()
         ]);
     }
     public function show_slider(Slider $slider)
@@ -57,7 +57,7 @@ class SliderController extends Controller
             'url'   => 'required'
         ]);
 
-        $result = $this->slider->update($request, $slider);
+        $result = $this->slider->updateSlider($request, $slider);
         if ($result) {
             return redirect('/admin/sliders/list');
         }
@@ -66,7 +66,7 @@ class SliderController extends Controller
     }
     public function destroy_slider(Request $request)
     {
-        $result = $this->slider->destroy($request);
+        $result = $this->slider->destroySlider($request);
         if ($result) {
             return response()->json([
                 'error' => false,

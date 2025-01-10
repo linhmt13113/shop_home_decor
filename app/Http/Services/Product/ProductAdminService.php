@@ -34,7 +34,7 @@ class ProductAdminService
         return true;
     }
 
-    public function insert($request)
+    public function insertProdAd($request)
     {
         $isValidPrice = $this->isValidPrice($request);
         if ($isValidPrice === false) return false;
@@ -53,12 +53,12 @@ class ProductAdminService
         return  true;
     }
 
-    public function get(){
+    public function getProdAd(){
         return Product::with('menu')->orderByDesc('id')->paginate(15);
 
     }
 
-    public function update($request, $product)
+    public function updateProdAd($request, $product)
     {
         $isValidPrice = $this->isValidPrice($request);
         if ($isValidPrice === false) return false;
@@ -75,7 +75,7 @@ class ProductAdminService
         return true;
     }
 
-    public function delete($request)
+    public function deleteProdAd($request)
     {
         $product = Product::where('id', $request->input('id'))->first();
         if ($product) {

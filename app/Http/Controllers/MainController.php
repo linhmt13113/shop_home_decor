@@ -20,16 +20,16 @@ class MainController extends Controller
     public function index(){
         return view('home', [
             'title' => 'Shop Home Decor',
-            'sliders' => $this->slider->show(),
-            'menus' => $this->menu->show(),
-            'products' => $this->product->get()
+            'sliders' => $this->slider->showSlider(),
+            'menus' => $this->menu->showMenu(),
+            'products' => $this->product->getProd()
         ]);
     }
 
     public function loadProduct(Request $request)
     {
         $page = $request->input('page', 0);
-        $result = $this->product->get($page);
+        $result = $this->product->getProd($page);
         if (count($result) != 0) {
             $html = view('products.list', ['products' => $result ])->render();
 

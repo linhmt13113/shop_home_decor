@@ -21,7 +21,7 @@ class ProductController extends Controller
     {
         return view('admin.product.list',[
             'title' => 'Product List',
-            'products' => $this->productService->get()
+            'products' => $this->productService->getProdAd()
         ]);
     }
 
@@ -42,7 +42,7 @@ class ProductController extends Controller
     public function store_product(ProductRequest $request)
     {
 
-        $this->productService->insert($request);
+        $this->productService->insertProdAd($request);
         return redirect()->back();
     }
 
@@ -61,7 +61,7 @@ class ProductController extends Controller
 
     public function update_product(Request $request, Product $product)
     {
-        $result = $this->productService->update($request, $product);
+        $result = $this->productService->updateProdAd($request, $product);
         if($result){
             return redirect('/admin/products/list');
         }
@@ -71,7 +71,7 @@ class ProductController extends Controller
 
     public function destroy_product(Request $request)
     {
-        $result = $this->productService->delete($request);
+        $result = $this->productService->deleteProdAd($request);
         if($result){
             return response()->json([
                 'error' => false,

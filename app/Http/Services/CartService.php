@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class CartService
 {
-    public function create($request)
+    public function createCart($request)
     {
         $qty = (int)$request->input('num_product');
         $product_id = (int)$request->input('product_id');
@@ -57,13 +57,13 @@ class CartService
             ->get();
     }
 
-    public function update($request)
+    public function updateCart($request)
     {
         Session::put('carts', $request->input('num_product'));
         return true;
     }
 
-    public function remove($id)
+    public function removeCart($id)
     {
         $carts = Session::get('carts');
         unset($carts[$id]);

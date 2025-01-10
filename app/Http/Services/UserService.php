@@ -8,15 +8,14 @@ use App\Models\User;
 
 class UserService
 {
-    public function insert($request)
+    public function insertNewUser($request)
     {
         try {
-            // Tạo người dùng mới với dữ liệu từ request
             User::create([
                 'name' => $request->input('name'),
                 'email' => $request->input('email'),
                 'password' => Hash::make($request->input('password')),
-                'level' => $request->input('level', 0), // 0 là user bình thường, 1 là admin
+                'level' => $request->input('level', 0),
             ]);
 
             Session::flash('success', 'Add new user successful');
@@ -29,12 +28,12 @@ class UserService
         return true;
     }
 
-    public function get()
+    public function getNewUser()
     {
-        return User::orderByDesc('id')->paginate(15);
+        return User::orderByDesc('id')->paginate(10);
     }
 
-    public function update($request, $user)
+    public function updateNewUser($request, $user)
     {
         try {
             $user->fill([
@@ -43,7 +42,6 @@ class UserService
                 'level' => $request->input('level'),
             ]);
 
-            // Chỉ cập nhật mật khẩu nếu có thay đổi
             if ($request->input('password')) {
                 $user->password = Hash::make($request->input('password'));
             }
@@ -60,7 +58,7 @@ class UserService
         return true;
     }
 
-    public function destroy($request)
+    public function destroyNewUser($request)
     {
         try {
             $user = User::findOrFail($request->input('id'));

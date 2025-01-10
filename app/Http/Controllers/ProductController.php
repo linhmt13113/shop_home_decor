@@ -15,8 +15,8 @@ class ProductController extends Controller
     }
     function index($id = "", $slug = "")
     {
-        $product = $this->productService->show($id);
-        $productsMore = $this->productService->more($id);
+        $product = $this->productService->showProd($id);
+        $productsMore = $this->productService->moreProd($id);
         return view('products.content', [
             'title' => $product->name,
             'product' => $product,

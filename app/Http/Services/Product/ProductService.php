@@ -10,7 +10,7 @@ class ProductService
 {
     const LIMIT = 16;
 
-    public function get($page = null)
+    public function getProd($page = null)
     {
         return Product::select('id', 'name', 'price', 'price_sale', 'thumb')
             ->orderByDesc('id')
@@ -22,7 +22,7 @@ class ProductService
     }
 
     //show product
-    public function show($id)
+    public function showProd($id)
     {
         return Product::where('id', $id)
             ->where('active', 1)
@@ -31,7 +31,7 @@ class ProductService
     }
 
     //show more product
-    public function more($id)
+    public function moreProd($id)
     {
         return Product::select('id', 'name', 'price', 'price_sale', 'thumb')
             ->where('active', 1)
@@ -48,7 +48,7 @@ class ProductService
                 ->orWhere('content', 'like', '%' . $search . '%')
                 ->orWhere('description', 'like', '%' . $search . '%')
                 ->orderByDesc('id')
-                ->get();  // Lấy tất cả các sản phẩm thỏa mãn
+                ->get();
 
             return $products;
         }

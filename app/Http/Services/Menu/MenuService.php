@@ -78,7 +78,7 @@ class MenuService
         return false;
     }
 
-    public function show()
+    public function showMenu()
     {
         return Menu::select('name', 'id')->where('parent_id', 0)->orderByDesc('id')->get();
     }

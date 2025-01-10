@@ -4,7 +4,7 @@ namespace App\Http\Services;
 
 class UploadService
 {
-    public function store($request)
+    public function storeNew($request)
     {
         if ($request->hasFile('file')) {
             try {

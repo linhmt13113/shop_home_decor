@@ -15,7 +15,7 @@ class CartController extends Controller
     }
     function index(Request $request)
     {
-        $result = $this->cartService->create($request);
+        $result = $this->cartService->createCart($request);
         if ($result === false) {
             return redirect()->back();
         }
@@ -36,14 +36,14 @@ class CartController extends Controller
 
     public function update_Cart(Request $request)
     {
-        $this->cartService->update($request);
+        $this->cartService->updateCart($request);
 
         return redirect('/carts');
     }
 
     public function remove_Cart($id = 0)
     {
-        $this->cartService->remove($id);
+        $this->cartService->removeCart($id);
 
         return redirect('/carts');
     }
