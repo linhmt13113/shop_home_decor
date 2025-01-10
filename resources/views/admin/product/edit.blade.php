@@ -12,7 +12,7 @@
                     <div class="form-group">
                         <label for="menu">Product Name</label>
                         <input type="text" name="name" value="{{ $product->name }}" class="form-control"
-                               placeholder="Nhập tên sản phẩm">
+                               placeholder="Enter Product Name">
                     </div>
                 </div>
 

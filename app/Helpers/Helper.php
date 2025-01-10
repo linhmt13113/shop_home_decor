@@ -20,11 +20,13 @@ class Helper
                         <td>' . self::active($menu->active) . '</td>
                         <td>' . $menu->updated_at . '</td>
                         <td>
-                            <a class="btn btn-primary btn-sm" href="/admin/menus/edit/' . $menu->id . '">
+                            <a class="btn btn-primary btn-sm" href="/admin/menus/edit/' . $menu->id . '"
+                                title="Edit Category">
                                 <i class="far fa-edit"></i>
                             </a>
                             <a href="#" class="btn btn-danger btn-sm"
-                                onclick="removeRow(' . $menu->id . ', \'/admin/menus/destroy\')">
+                                onclick="removeRow(' . $menu->id . ', \'/admin/menus/destroy\')"
+                                title="Delete Category">
                                 <i class="far fa-trash-alt"></i>
                             </a>
                         </td>

@@ -25,11 +25,12 @@
                 <td>{!! \App\Helpers\Helper::active($slider->active) !!}</td>
                 <td>{{ $slider->updated_at }}</td>
                 <td>
-                    <a class="btn btn-primary btn-sm" href="/admin/sliders/edit/{{ $slider->id }}">
+                    <a class="btn btn-primary btn-sm" href="/admin/sliders/edit/{{ $slider->id }}" title="Edit Slider">
                         <i class="fas fa-edit"></i>
                     </a>
                     <a href="#" class="btn btn-danger btn-sm"
-                        onclick="removeRow('{{ $slider->id }}', '/admin/sliders/destroy')">
+                        onclick="removeRow('{{ $slider->id }}', '/admin/sliders/destroy')"
+                        title="Delete Slider">
                         <i class="fas fa-trash-alt"></i>
                     </a>
                 </td>

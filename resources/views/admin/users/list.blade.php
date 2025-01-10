@@ -21,11 +21,11 @@
                 <td>{!! $user->level == 1 ? 'Admin' : 'User' !!}</td>
                 <td>{{ $user->updated_at }}</td>
                 <td>
-                    <a class="btn btn-primary btn-sm" href="/admin/users/users/edit/{{ $user->id }}">
+                    <a class="btn btn-primary btn-sm" href="/admin/users/users/edit/{{ $user->id }}" title="Edit User">
                         <i class="fas fa-edit"></i>
                     </a>
                     <a href="#" class="btn btn-danger btn-sm"
-                        onclick="removeRow('{{ $user->id }}', '/admin/users/users/destroy')">
+                        onclick="removeRow('{{ $user->id }}', '/admin/users/users/destroy')" title="Delete User">
                         <i class="fas fa-trash-alt"></i>
                     </a>
                 </td>
