@@ -27,7 +27,6 @@
 <link rel="stylesheet" type="text/css" href="/template/css/main/home.css">
 <link rel="stylesheet" type="text/css" href="/template/css/main/list_cart.css">
 <link rel="stylesheet" type="text/css" href="/template/css/main/list_product.css">
-<link rel="stylesheet" type="text/css" href="/template/css/main/main.css">
 <link rel="stylesheet" type="text/css" href="/template/css/main/menu.css">
 <link rel="stylesheet" type="text/css" href="/template/css/main/search_results.css">
 <link rel="stylesheet" type="text/css" href="/template/css/main/user_login.css">

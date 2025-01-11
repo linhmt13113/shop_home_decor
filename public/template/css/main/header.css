@@ -182,12 +182,12 @@
 .header-main-ds > li > a {
     font-family: Poppins-Medium;
 
-    font-size: 20px;
+    font-size: 22px;
     color: #333;
     padding: 5px 10px;
     transition: all 0.4s;
     font-weight: bold;
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 .header-v3 .header-main-ds > li > a {
