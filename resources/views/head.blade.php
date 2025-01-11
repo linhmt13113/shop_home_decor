@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png" href="/template/images/icons/pngwing.png" />
 
-<!-- <link rel="stylesheet" type="text/css" href="/template/css/main.css"> -->
+<link rel="stylesheet" type="text/css" href="/template/css/main.css">
 
 
 <link rel="stylesheet" type="text/css" href="/template/assets/bootstrap/css/bootstrap.min.css">
@@ -20,18 +20,19 @@
 <link rel="stylesheet" type="text/css" href="/template/css/util.css">
 <link rel="stylesheet" type="text/css" href="/template/css/style.css">
 <!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="/template/css/main/list_cart.css">
 <link rel="stylesheet" type="text/css" href="/template/css/main/cart.css">
 <link rel="stylesheet" type="text/css" href="/template/css/main/content_product.css">
 <link rel="stylesheet" type="text/css" href="/template/css/main/footer.css">
 <link rel="stylesheet" type="text/css" href="/template/css/main/header.css">
 <link rel="stylesheet" type="text/css" href="/template/css/main/home.css">
-<link rel="stylesheet" type="text/css" href="/template/css/main/list_cart.css">
 <link rel="stylesheet" type="text/css" href="/template/css/main/list_product.css">
 <link rel="stylesheet" type="text/css" href="/template/css/main/menu.css">
 <link rel="stylesheet" type="text/css" href="/template/css/main/search_results.css">
 <link rel="stylesheet" type="text/css" href="/template/css/main/user_login.css">
 <link rel="stylesheet" type="text/css" href="/template/css/main/user_profile.css">
 <link rel="stylesheet" type="text/css" href="/template/css/main/user_register.css">
+<link rel="stylesheet" type="text/css" href="/template/css/main/all.css">
 
 
 
