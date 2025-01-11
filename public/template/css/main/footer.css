@@ -1,0 +1,153 @@
+/* Footer Styles */
+.footer {
+    background: linear-gradient(to right, #333, #f5f5f5);
+    color: #fff;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Left Section */
+  .footer-left {
+    flex: 1;
+    max-width: 300px;
+  }
+
+  .footer-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .footer-description {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  /* Center Section */
+  .footer-center {
+    flex: 1;
+    max-width: 300px;
+  }
+
+  .footer-heading {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-links li {
+    margin-bottom: 8px;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+  }
+
+  .footer-links a:hover {
+    color: #ff7f50;
+  }
+
+  /* Right Section */
+  .footer-right {
+    flex: 1;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 15px;
+  }
+
+  .social-link {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .social-link:hover {
+    color: #ff7f50;
+  }
+
+  /* Footer Bottom Section */
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-left, .footer-center, .footer-right {
+      max-width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  }
+
+  .go-top-button {
+    display: none;
+    position: fixed;
+    width: 40px;
+    height: 38px;
+    bottom: 0px;
+    right: 40px;
+    background-color: #ff0000;
+    opacity: 0.5;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+  }
+
+  .go-top-button-sym {
+    font-size: 25px;
+    color: white;
+    line-height: 1em;
+  }
+
+  .go-top-button:hover {
+    opacity: 1;
+    background-color: #ff0000;
+  }
+
+  @media (max-width: 575px) {
+    .go-top-button {
+      bottom: 0px;
+      right: 15px;
+    }
+  }
