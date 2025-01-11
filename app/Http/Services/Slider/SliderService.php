@@ -24,7 +24,7 @@ class SliderService
     }
 
     public function getSlider(){
-        return Slider::orderByDesc('id')->paginate(15);
+        return Slider::orderByDesc('id')->paginate(10);
     }
 
     public function updateSlider($request, $slider)

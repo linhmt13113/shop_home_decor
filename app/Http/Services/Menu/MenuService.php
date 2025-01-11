@@ -8,12 +8,13 @@ use Illuminate\Support\Facades\Session;
 class MenuService
 {
 
-
+    // Get parent menus
     public function getParent()
     {
         return Menu::where('parent_id', 0)->get();
     }
 
+    // Get category IDs based on parent ID
     public function getCategoryIds($parentId)
     {
         $ids = Menu::where('id', $parentId)
@@ -24,23 +25,25 @@ class MenuService
         return $ids;
     }
 
-
+    // Get all menus with pagination
     public function getAll()
     {
         return Menu::orderByDesc('id')->paginate(20);
     }
 
-
-    public function create($request)
+    // Create a new menu
+    public function createAdMenu($request)
     {
         try {
-            Menu::create([
+            $menuData = [
                 'name' => (string) $request->input('name'),
                 'parent_id' => (int) $request->input('parent_id'),
                 'description' => (string) $request->input('description'),
                 'content' => (string) $request->input('content'),
                 'active' => (string) $request->input('active'),
-            ]);
+            ];
+
+            Menu::create($menuData);
 
             Session::flash('success', 'Created a successful category');
         } catch (\Exception $err) {
@@ -51,7 +54,8 @@ class MenuService
         return true;
     }
 
-    public function update($request, $menu)
+    // Update an existing menu
+    public function updateAdMenu($request, $menu)
     {
 
         if ($request->input('parent_id') != $menu->id) {
@@ -68,25 +72,34 @@ class MenuService
         return true;
     }
 
+    // Delete a menu
     public function destroy($request)
     {
         $id = (int) $request->input('id');
         $menu = Menu::where('id', $id)->first();
         if ($menu) {
-            return Menu::where('id', $id)->orWhere('parent_id', $id)->delete();
+            Menu::where('id', $id)->orWhere('parent_id', $id)->delete();
+            return true;
         }
         return false;
     }
 
+    // Get top-level menus (parent menus)
     public function showMenu()
     {
-        return Menu::select('name', 'id')->where('parent_id', 0)->orderByDesc('id')->get();
+        return Menu::select('name', 'id')
+            ->where('parent_id', 0)
+            ->orderByDesc('id')
+            ->get();
     }
 
     public function getId($id)
     {
-        return Menu::where('id', $id)->where('active', 1)->firstOrFail();
+        return Menu::where('id', $id)
+            ->where('active', 1)
+            ->firstOrFail();
     }
+
 
     public function getOfProduct($categoryIds, $request)
     {

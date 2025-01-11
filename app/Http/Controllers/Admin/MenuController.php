@@ -24,7 +24,7 @@ class MenuController extends Controller
     }
 
     public function store_menu(CreateFormRequest $request) {
-        $result = $this->menuService->create($request);
+        $result = $this->menuService->createAdMenu($request);
 
         return redirect()->back();
 
@@ -46,7 +46,7 @@ class MenuController extends Controller
     }
 
     public function update_menu(Menu $menu, CreateFormRequest $request)  {
-        $this->menuService->update($request, $menu);
+        $this->menuService->updateAdMenu($request, $menu);
 
         return redirect('/admin/menus/list');
     }

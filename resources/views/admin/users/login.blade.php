@@ -3,7 +3,7 @@
 
 <head>
     @include('admin.head')
-<link rel="stylesheet" href="/template/admin/dist/css/admin_login.css">
+<link rel="stylesheet" href="/template/admin/adjs/css/admin_login.css">
 </head>
 
 <body class="hold-transition login-page">

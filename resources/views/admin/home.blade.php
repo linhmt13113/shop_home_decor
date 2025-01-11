@@ -1,5 +1,5 @@
 @extends('admin.main')
-<link rel="stylesheet" href="/template/admin/dist/css/admin.css">
+<link rel="stylesheet" href="/template/admin/adjs/css/admin.css">
 
 @section('content')
     <!-- Main content -->
@@ -12,7 +12,7 @@
                             <h3 class="card-title">Total Products</h3>
                         </div>
                         <div class="card-body d-flex flex-column  align-items-center">
-                            <img src="/template/admin/dist/img/product_illus.jpg" alt="product icon" class="img-fluid mb-3 rounded-circle">
+                            <img src="/template/admin/adjs/img/product_illus.jpg" alt="product icon" class="img-fluid mb-3 rounded-circle">
                             <h2 class="text-success mt-auto"><strong>{{ $totalProducts }}</strong></h2>
                             <p class="text-muted">Total number of products in the system.</p>
                             <a href="{{ route('product_list') }}" class="btn-warning mt-3">View Details</a>
@@ -26,7 +26,7 @@
                             <h3 class="card-title">Total Users</h3>
                         </div>
                         <div class="card-body d-flex flex-column  align-items-center">
-                            <img src="/template/admin/dist/img/user_illus.png" alt="user icon" class="img-fluid mb-3 rounded-circle">
+                            <img src="/template/admin/adjs/img/user_illus.png" alt="user icon" class="img-fluid mb-3 rounded-circle">
                             <h2 class="text-info mt-auto"><strong>{{ $totalUsers }}</strong></h2>
                             <p class="text-muted">Total number of users in the system.</p>
                             <a href="{{ route('admin.users.users.list') }}" class="btn-warning mt-3">View Details</a>
