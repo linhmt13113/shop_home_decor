@@ -1,0 +1,155 @@
+.bg0,
+.spacer {
+    background: linear-gradient(to right, #f6f6f6, #f1f1f1);
+}
+
+.container {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.text-18 {
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.text-20 {
+    font-family: Poppins-SemiBold;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.text-color {
+    color: #888;
+}
+
+.button-size {
+    min-width: 94px;
+    height: 40px;
+}
+
+.styles-border {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+}
+
+.hv-button:hover {
+    border-color: #717fe0;
+    background-color: #717fe0;
+    color: #fff;
+}
+
+.menu-color-2 {
+    color: #333;
+}
+
+.show-search .icon-search,
+.show-filter .icon-filter {
+    display: none;
+}
+
+.show-search .icon-close-search,
+.show-filter .icon-close-filter {
+    display: unset;
+}
+
+.flex-w {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-sb-m {
+    justify-content: space-between;
+}
+
+.flex-c-m {
+    display: flex;
+    justify-content: center;
+}
+
+.filter-tope-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Button with icon */
+.js-show-filter {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.js-show-filter:hover {
+    background-color: #ffc02c;
+    border-color: #ffc02c;
+    color: #fff;
+}
+
+.icon-filter,
+.icon-close-filter {
+    font-size: 15px;
+    color: #333;
+    margin-right: 6px;
+}
+
+.panel-filter {
+    display: none;
+    padding-top: 10px;
+}
+
+.wrap-filter {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ececec;
+    padding: 27px 40px;
+    width: 100%;
+}
+
+.filter-col1,
+.filter-col2 {
+    width: 45%;
+}
+
+.filter-col1 ul,
+.filter-col2 ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.filter-col1 li,
+.filter-col2 li {
+    padding-bottom: 6px;
+}
+
+.click-filter {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.click-filter:hover {
+    color: #ff5a5f;
+    font-size: 19px;
+}
+
+.act-fil {
+    font-weight: bold;
+    color: #717fe0;
+}
+
+.panel-filter .filter-col1,
+.panel-filter .filter-col2 {
+    font-size: 18px;
+}
+
+.panel-filter .filter-col1 ul li,
+.panel-filter .filter-col2 ul li {
+    font-size: 18px;
+}
