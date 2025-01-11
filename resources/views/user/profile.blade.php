@@ -2,14 +2,15 @@
 @extends('main')
 
 @section('content')
+<link rel="stylesheet" type="text/css" href="/template/css/main/user_profile.css">
 
 
-<div class="container bg0 p-t-130 p-b-85 ">
-    <h2 class="text-center">{{ $title }}</h2>
+<div class="profile-container profile-background p-t-120 p-b-85 fixed-profile ">
+    <h2 class="text-center p-t-40 ">{{ $user->name }} Profile</h2>
 
     @include('admin.alert')
 
-    <form class="bg0 p-t-20 p-b-85" action="{{ route('profile.update') }}" method="POST">
+    <form class="profile-background p-t-20 p-b-85" action="{{ route('profile.update') }}" method="POST">
         @csrf
 
         <div class="form-group">
@@ -48,3 +49,5 @@
 
 
 @endsection
+
+

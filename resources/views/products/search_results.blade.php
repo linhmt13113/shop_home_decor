@@ -1,10 +1,10 @@
 @extends('main')
 
 @section('content')
-<section class="bg0 p-t-130 p-b-140">
-    <div class="container">
+<section class="clo-background-white p-t-130 p-b-140">
+    <div class="content-wrapper-give">
         <div class="p-b-10">
-            <h3 class="ltext-30 cl5">
+            <h3 class="text-bold-large text-darkest">
                 @isset($title)
                      Results for: {{ $title }}
                 @else

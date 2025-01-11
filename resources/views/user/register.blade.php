@@ -1,8 +1,9 @@
 @extends('main')
 
 @section('content')
+<link rel="stylesheet" type="text/css" href="/template/css/main/user_register.css">
 
-<div class="container bg0 p-t-130 p-b-85 ">
+<div class="register-container">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
@@ -10,28 +11,25 @@
 
                 @include('admin.alert')
 
-                <form class="card-body bg0 p-t-20 p-b-85" action="{{ route('register') }}" method="POST">
+                <form class="card-body register-background p-t-20 p-b-85" action="{{ route('register') }}" method="POST">
                     @csrf
                     <div class="input-group mb-3">
                         <input type="text" name="name" class="form-control" placeholder="Full Name"
                             value="{{ old('name') }}" required autofocus>
-
                     </div>
 
                     <div class="input-group mb-3">
                         <input type="email" name="email" class="form-control" placeholder="Email"
                             value="{{ old('email') }}" required>
-
                     </div>
+
                     <div class="input-group mb-3">
                         <input type="password" name="password" class="form-control" placeholder="Password" required>
-
                     </div>
 
                     <div class="input-group mb-3">
                         <input type="password" name="password_confirmation" class="form-control"
                             placeholder="Confirm Password" required>
-
                     </div>
 
                     <button type="submit" class="btn btn-primary">Register</button>
@@ -41,7 +39,5 @@
     </div>
 </div>
 
-
-
-
 @endsection
+

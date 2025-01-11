@@ -1,26 +1,26 @@
 @extends('main')
 @section('content')
-    <div class="container p-t-80">
+    <div class="content-wrapper-give p-t-80">
         <div class="flex-w p-l-25 p-r-15 p-t-130 p-lr-0-lg">
-            <a href="/" class="ltext-106 cl8 hov-cl1 trans-04">
+            <a href="/" class="text-bold-large text-medium-dark hover-color-primary trans-04">
                 Home
                 <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
             </a>
 
             <a href="/categories/{{ $product->menu->id }}-{{ \Str::slug($product->menu->name) }}.html"
-               class="ltext-106 cl8 hov-cl1 trans-04">
+               class="text-bold-large text-medium-dark hover-color-primary trans-04">
                 {{ $product->menu->name }}
                 <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
             </a>
 
-            <span class="ltext-106 cl4">
+            <span class="text-bold-large text-light-muted">
 				{{ $title }}
 			</span>
         </div>
     </div>
 
-    <section class=" bg0 p-t-65 p-b-60">
-        <div class="container">
+    <section class=" clo-background-white p-t-65 p-b-60">
+        <div class="content-wrapper-give">
             <div class="row">
                 <div class="col-md-6 col-lg-7 p-b-30">
                     <div class="p-l-25 p-r-30 p-lr-0-lg">
@@ -55,40 +55,40 @@
 
                         @include('admin.alert')
 
-                        <h4 class="mtext-105 cl2 js-name-detail p-b-14">
+                        <h4 class="text-large text-dark js-name-detail p-b-14">
                             {{ $title }}
                         </h4>
 
-                        <span class="mtext-106 cl2">
+                        <span class="text-semi-bold text-dark">
 							{!! \App\Helpers\Helper::price($product->price, $product->price_sale) !!}
 						</span>
 
-                        <p class="mtext-105 cl3 p-t-23">
+                        <p class="text-large text-muted p-t-23">
                             {{ $product->description }}
                         </p>
 
                         <!--  -->
                         <div class="p-t-33">
                             <div class="flex-w flex-r-m p-b-10">
-                                <div class="size-204 flex-w flex-m ">
+                                <div class="full-width-minus flex-w flex-m ">
                                     <form action="/add-cart" method="post">
                                         @if ($product->price !== NULL)
                                             <div class="wrap-num-product flex-w m-r-20 m-tb-10 ">
-                                                <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+                                                <div class="btn-num-product-down text-medium-dark hover-btn-primary trans-04 flex-c-m">
                                                     <i class="fs-16 zmdi zmdi-minus"></i>
                                                 </div>
 
-                                                <input class="mtext-104 cl3 txt-center num-product " type="number"
+                                                <input class="text-medium-title text-muted txt-center num-product " type="number"
                                                        name="num_product" value="1">
 
-                                                <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+                                                <div class="btn-num-product-up text-medium-dark hover-btn-primary trans-04 flex-c-m">
                                                     <i class="fs-16 zmdi zmdi-plus"></i>
                                                 </div>
                                             </div>
 
 
                                             <button type="submit"
-                                                    class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-r-100 p-l-100 p-lr-15 trans-04 ">
+                                                    class="flex-c-m text-uppercase-bold text-white btn-large clo-background-primary border-rounded hover-btn-dark p-r-100 p-l-100 p-lr-15 trans-04 ">
                                                 Add to cart
                                             </button>
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -104,9 +104,9 @@
                 </div>
             </div>
 
-            <div class="bor10 m-t-50 p-t-43 p-b-40">
+            <div class="border-light m-t-50 p-t-43 p-b-40">
                 <!-- Tab01 -->
-                <div class="tab0 ltext-106">
+                <div class="tab0 text-bold-large">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item p-b-10 ">
@@ -119,7 +119,7 @@
                         <!-- - -->
                         <div class="tab-pane fade show active" id="description" role="tabpanel">
                             <div class="how-pos2 p-lr-15-md">
-                                <p class="stext-102 cl6">
+                                <p class="text-normal text-grey">
                                     {!! $product->content !!}
                                 </p>
                             </div>
@@ -132,18 +132,18 @@
             </div>
         </div>
 
-        <div class="bg6 flex-c-m flex-w size-302 m-t-73 p-tb-15">
+        <div class="clo-background-light flex-c-m flex-w sz-h-80 m-t-73 p-tb-15">
 
-            <span class="ltext-106 cl6 p-lr-25">
+            <span class="text-bold-large text-grey p-lr-25">
 				Categories: {{ $product->menu->name }}
 			</span>
         </div>
     </section>
 
-    <section class=" bg0 p-t-45 p-b-105">
-        <div class="container">
+    <section class=" clo-background-white p-t-45 p-b-105">
+        <div class="content-wrapper-give">
             <div class="p-b-45">
-                <h3 class="ltext-106 cl5 txt-center">
+                <h3 class="text-bold-large text-darkest txt-center">
                     Related Products
                 </h3>
             </div>

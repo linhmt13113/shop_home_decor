@@ -1,6 +1,8 @@
 @extends('main')
 
 @section('content')
+<link rel="stylesheet" type="text/css" href="/template/css/main/menu.css">
+
     <div class="bg0 m-t-23 p-b-140 p-t-120">
         <div class="container">
             <div class="flex-w flex-sb-m p-b-52">
