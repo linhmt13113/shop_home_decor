@@ -197,3 +197,7 @@
     font-size: 25px;
     line-height: 1.2;
 }
+
+.h-cart-empty-message {
+    font-size: 20px;
+}

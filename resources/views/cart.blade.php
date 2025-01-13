@@ -22,38 +22,35 @@
             <!-- Cart Item List -->
             <ul class="h-cart-wrapitem w-full">
                 <!-- If cart is empty -->
-                @if($products && count($products) === 0)
+                @if(isset($products) && count($products) === 0)
                     <div class="h-cart-empty-message">
                         Your cart is empty.
                     </div>
-                @endif
+                @elseif(isset($products) && count($products) > 0)
+                            @foreach ($products as $key => $product)
+                                        @php
+                                            $price = \App\Helpers\Helper::price($product->price, $product->price_sale);
+                                            $sumPriceCart += $product->price_sale != 0 ? $product->price_sale : $product->price;
+                                        @endphp
 
-                <!-- Loop through each product in the cart -->
-                @if(count($products) > 0)
-                    @foreach ($products as $key => $product)
-                        @php
-                            $price = \App\Helpers\Helper::price($product->price, $product->price_sale);
-                            $sumPriceCart += $product->price_sale != 0 ? $product->price_sale : $product->price;
-                        @endphp
+                                        <li class="h-cart-item flex-w flex-t m-b-12">
+                                            <!-- Product Image -->
+                                            <div class="h-cart-item-img">
+                                                <img src="{{$product->thumb}}" alt="IMG">
+                                            </div>
 
-                        <li class="h-cart-item flex-w flex-t m-b-12">
-                            <!-- Product Image -->
-                            <div class="h-cart-item-img">
-                                <img src="{{$product->thumb}}" alt="IMG">
-                            </div>
+                                            <!-- Product Info -->
+                                            <div class="h-cart-item-txt p-t-8">
+                                                <a href="#" class="h-cart-item-name m-b-18 hover-close trans-04">
+                                                    {{$product->name}}
+                                                </a>
 
-                            <!-- Product Info -->
-                            <div class="h-cart-item-txt p-t-8">
-                                <a href="#" class="h-cart-item-name m-b-18 hover-close trans-04">
-                                    {{$product->name}}
-                                </a>
-
-                                <span class="h-cart-item-info">
-                                    {!! $price !!}
-                                </span>
-                            </div>
-                        </li>
-                    @endforeach
+                                                <span class="h-cart-item-info">
+                                                    {!! $price !!}
+                                                </span>
+                                            </div>
+                                        </li>
+                            @endforeach
                 @endif
             </ul>
 
@@ -66,11 +63,13 @@
 
                 <!-- Cart Action Buttons -->
                 <div class="h-cart-buttons flex-w w-full p-tb-40">
-                    <a href="/carts" class="flex-c-m new-text-style white-text size-button dark-bg rounded-border hover-effect-btn p-lr-15 trans-04 m-r-8 m-b-10">
+                    <a href="/carts"
+                        class="flex-c-m new-text-style white-text size-button dark-bg rounded-border hover-effect-btn p-lr-15 trans-04 m-r-8 m-b-10">
                         View Cart
                     </a>
 
-                    <a href="/carts" class="flex-c-m new-text-style white-text size-button dark-bg rounded-border hover-effect-btn p-lr-15 trans-04 m-b-10">
+                    <a href="/carts"
+                        class="flex-c-m new-text-style white-text size-button dark-bg rounded-border hover-effect-btn p-lr-15 trans-04 m-b-10">
                         Check Out
                     </a>
                 </div>

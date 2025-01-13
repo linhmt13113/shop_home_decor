@@ -134,7 +134,7 @@
 <div class="text-center">
     <h2>Empty Cart</h2>
 </div>
-<div class="spacer" style="height: 280px;"></div>
+<div class="spacer" style="height: 400px;"></div>
 
 @endif
 @endsection
