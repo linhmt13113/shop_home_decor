@@ -18,7 +18,7 @@ function loadMore()
                 $('#loadProduct').append(result.html);
                 $('#page').val(page + 1);
             } else {
-                alert('Đã load xong Sản Phẩm');
+                alert('Product has been loaded');
                 $('#button-loadMore').css('display', 'none');
             }
         }

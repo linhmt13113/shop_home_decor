@@ -61,13 +61,13 @@
 
                                 <li class="p-b-6">
                                     <a href="{{ request()->fullUrlWithQuery(['price_min' => 0, 'price_max' => 50]) }}" class="click-filter text-18 trans-04">
-                                        $0.00 - $50.00
+                                        £0.00 - £50.00
                                     </a>
                                 </li>
 
                                 <li class="p-b-6">
                                     <a href="{{ request()->fullUrlWithQuery(['price_min' => 50, 'price_max' => 100]) }}" class="click-filter text-18 trans-04">
-                                        $50.00 - $100.00
+                                        £50.00 - £100.00
                                     </a>
                                 </li>
                             </ul>
