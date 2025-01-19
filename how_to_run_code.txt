@@ -1,4 +1,0 @@
-1. Import database: shop_home_decor.sql to your database
-2. In terminal run: composer install
-3. Change DB_PASSWORD to your password
-4. Run: php artisan serve
