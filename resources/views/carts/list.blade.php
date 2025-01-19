@@ -123,7 +123,7 @@
                     </div>
 
                     <button class="flex-c-m text-15 color-white sz-2 color-222 bor15 hv-3-button p-lr-15 trans-04 pointer">
-                        Checkout
+                        Order
                     </button>
                 </div>
             </div>

@@ -70,7 +70,7 @@
 
                     <a href="/carts"
                         class="flex-c-m new-text-style white-text size-button dark-bg rounded-border hover-effect-btn p-lr-15 trans-04 m-b-10">
-                        Check Out
+                        Order
                     </a>
                 </div>
             </div>
